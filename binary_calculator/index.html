@@ -1,0 +1,145 @@
+<html>
+<head>
+    <style>
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+
+body {
+  position: absolute;
+  height: 250px;
+  width: 400px;
+  top:50%;
+  left: 50%;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  box-shadow: 10px 0 50px rgba(0,0,0,.3);
+}
+
+h1 {
+  margin-bottom: 30px;
+  font-size: 28px;
+  color: black;
+}
+
+#container {
+
+position: absolute;
+  height: 100px;
+  width: 400px;
+  bottom:10%;
+  left: 50%;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  box-shadow: 10px 0 50px rgba(0,0,0,.3);
+}
+
+#res {
+  background-color: lightcyan;
+  height: 48px;
+  font-size: 26px;
+  color: black;
+  border: 1px solid #f5f5f5;
+  border-radius: 5px;
+  padding: 5px 20px;
+  color: #363636;
+  border-radius: 10px;
+}
+
+#btns button {
+  width: 30%;
+  height: 36px;
+  font-size: 20px;
+  margin: 0px;
+  float: left;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+#btn0,
+#btn1 {
+  background-color: lightsalmon;
+  color: #f3f3f3;
+}
+
+#btnClr,
+#btnEql {
+  background-color: salmon;
+  color: #f3f3f3;
+}
+
+#btnSum,
+#btnSub,
+#btnMul,
+#btnDiv {
+  background-color: orangered;
+  color: #f3f3f3;
+}
+
+    </style>
+</head>
+<body>
+<h1>Binary Calculator</h1>
+<div id="cont">
+    <div id="res"></div>
+  <div id='btns'>
+    <button id='btn0'>0</button>
+    <button id='btn1'>1</button>
+    <button id='btnClr'>C</button>
+    <button id='btnEql'>=</button>
+    <button id='btnSum'>+</button>
+    <button id='btnSub'>-</button>
+    <button id='btnMul'>*</button>
+    <button id='btnDiv'>/</button>
+  </div>
+</div>
+<script>
+var btn0 = document.getElementById("btn0");
+var btn1 = document.getElementById("btn1");
+var btnEql = document.getElementById("btnEql");
+var btnClr = document.getElementById("btnClr");
+
+function equate() {
+  b = res.innerHTML;
+  const c = parseInt(a, 2);
+  const d = parseInt(b, 2);
+  res.innerHTML = eval(`(${c} ${operation} ${d}).toString(2)`);
+};
+
+var a, b, operation;
+
+btn0.onclick = function () {
+  res.innerHTML += "0";
+};
+
+btn1.onclick = function () {
+  res.innerHTML += "1";
+};
+
+btnClr.onclick = function () {
+  res.innerHTML = "";
+};
+
+btnEql.onclick = equate;
+
+function perform(e) {
+  var btn = e.target || e.srcElement;
+  a = res.innerHTML;
+  operation = btn.innerHTML;
+  res.innerHTML = "";
+}
+
+document.getElementById("btnSum").onclick = perform;
+document.getElementById("btnSub").onclick = perform;
+document.getElementById("btnMul").onclick = perform;
+document.getElementById("btnDiv").onclick = perform;
+    </script>
+</body>
+</html>
